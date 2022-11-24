@@ -9,7 +9,7 @@ print(r"\110")#la r al principio, hace referencia a la función raw strings
 print("""tanto para bloques de comentarios
 como para prints de varias lineas,
 podemos usar triples comillas""")
-
+print("------")
 #Formato de cadenas
 x=5
 s="El numero es: " + str(x) #una manera de concatenar un int en una cadena volviendolo string
@@ -28,7 +28,7 @@ b=10
 s=f"4 los numeros son {a} y {b}" #otra manera de concatenar varios int conservandolos int
 print(s)
 print(f"5 los numeros son {a} y {b}")#otra manera de concatenar varios int conservandolos int
-
+print("------")
 #Funciones en String
 a=7;f=8
 print(f"la suma de {a}+{f} es igual a: {a+f}")
@@ -36,3 +36,38 @@ print(f"la suma de {a}+{f} es igual a: {a+f}")
 def funciones():
     return 50
 print(f"El número es {funciones()}")
+print("------")
+#Concatenaciones
+s="primero "
+d="segundo"
+print(s+""+d)
+print("------")
+#Multiplicar un string
+print(s*3)
+print("------")
+#Comprobar si una palabra está en una cadena
+print("perro" in "me mordió el perro") #Responde true o false
+print("------")
+#convertir entre caracteres y volar numerico
+print(chr(550))#pasa el numero a caracter
+print(ord("d"))#pasa el caracter a valor numerico
+print("------")
+#longitud
+s="Me mordió el perro"
+print(len(s))
+print("------")
+#Tomar las cadenas de texto como si fueran listas
+print(s[0])
+print(s[10])
+print("------")
+#Recorrer un string
+x=len(s)
+c=""
+for i in  range(0,x):
+    print(s[i])
+print("------")
+for i in  range(0,x):
+    c+=s[i]
+    print(c)
+
+
