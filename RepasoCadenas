@@ -1,0 +1,38 @@
+c="cadena"
+print(type(c))#Type para conocer el tipo de variable
+s="para una comilla dentro de la cadena usamos el back slash \" y así se muestra al imprimir"
+print(s)
+s="para saltos de linea, usamos \npor ejemplo"
+print(s)
+print("\110")#110 corresponde al caracter H
+print(r"\110")#la r al principio, hace referencia a la función raw strings
+print("""tanto para bloques de comentarios
+como para prints de varias lineas,
+podemos usar triples comillas""")
+
+#Formato de cadenas
+x=5
+s="El numero es: " + str(x) #una manera de concatenar un int en una cadena volviendolo string
+print(s)
+x=5
+s="El numero es: %d" % x #Manera de concatenar un int en una cadena conservandolo int
+print(s)
+s="1 los numeros son %d y %d"%(5,10) #una manera de concatenar varios int conservandolos int
+print(s)
+s="2 los numeros son {} y {}".format(5,10) #otra manera de concatenar varios int conservandolos int
+print(s)
+s="3 los numeros son {a} y {b}".format(a=5,b=10) #otra manera de concatenar varios int conservandolos int
+print(s)
+a=5
+b=10
+s=f"4 los numeros son {a} y {b}" #otra manera de concatenar varios int conservandolos int
+print(s)
+print(f"5 los numeros son {a} y {b}")#otra manera de concatenar varios int conservandolos int
+
+#Funciones en String
+a=7;f=8
+print(f"la suma de {a}+{f} es igual a: {a+f}")
+#Llamar funciones en un string
+def funciones():
+    return 50
+print(f"El número es {funciones()}")
