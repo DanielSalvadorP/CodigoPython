@@ -35,3 +35,43 @@ for i in data["Dt_Customer"]:
 
 print("La fecha de inscripcion del cliente mas reciente en los registros:",max(dates))
 print("La fecha de inscripcion del cliente mas antiguo en los registros:",min(dates))
+
+days = []
+d1 = max(dates)
+for i in dates:
+    delta = d1 - i
+    days.append(delta)
+data["Customer_For"] = days
+data["Customer_For"] = pd.to_numeric(data["Customer_For"], errors="coerce")
+
+estadomarital = data["Marital_Status"].value_counts()
+print("Total de categorías en la caracteristica Marital_Status:\n",estadomarital,"\n")
+print("Categorías totales en la función educación:\n", data["Education"].value_counts())
+
+data["age"]=2021-data["Year_Birth"]
+data["spent"]=data["MntWines"]+data["MntFruits"]+data["MntMeatProducts"]+data["MntFishProducts"]
+data["Living_With"]=data["Marital_Status"].replace({"Married":"Partner","Together":"Partner",
+                                                    "Absurd":"Alone","Widow":"Alone",
+                                                    "YOLO":"Alone","Divorced":"Alone",
+                                                    "Single":"Alone",})
+data["Children"]=data["Kidhome"]+data["Teenhome"]
+
+data["Family_Size"]=data["Living_With"].replace({"Alone":1,"Partner":2})+data["Children"]
+
+data["Is_Parent"]=np.where(data.Children>0,1,0)
+
+data["Education"]=data["Education"].replace({"Basic":"Undergraduate","2n Cycle":"Undergraduate",
+                                             "Graduation":"Graduate","Master":"Postgraduate",
+                                             "PhD":"Postgraduate",})
+to_drop=["Marital_Status","Dt_Customer","Z_CostContact","Z_Revenue","Year_Birth","ID"]
+data=data.drop(to_drop,axis=1)
+
+data=data[(data["age"]<90)]
+data=data[(data["Income"]<600000)]
+print("El número total de puntos de datos depues de eliminar los valores atipicos es:", len(data))
+
+#Matriz de correlación
+corrmat=data.corr()
+plt.figure(figsize=(20,20))
+sns.heatmap(corrmat,annot=True,center=0)
+
