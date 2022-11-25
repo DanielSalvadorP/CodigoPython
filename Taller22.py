@@ -75,3 +75,41 @@ corrmat=data.corr()
 plt.figure(figsize=(20,20))
 sns.heatmap(corrmat,annot=True,center=0)
 
+s=(data.dtypes=='object')
+object_cols=list(s[s].index)
+
+print("Variables categoricas en el conjunto de datos", object_cols)
+
+LE=LabelEncoder()
+for i in object_cols:
+    data[i]=data[[i]].apply(LE.fit_transform)
+
+print("Todas las funciones ahora son numéricas")
+
+ds=data.copy()
+
+#cols_del=['AcceptedCmp3','AcceptedCmp4','AcceptedCmp5',
+#          'AcceptedCmp1','AcceptedCmp2','Complain','']
+
+scaler=StandardScaler()
+scaler.fit(data)
+scaled_ds=pd.DataFrame(scaler.transform(ds),columns=ds.columns)
+print("Todas las caracteristicas ahora están escaladas")
+
+#Iniciando PCA para reducir las dimensiones, también conocidas como características, a 3
+pca = PCA(n_components=3)
+pca.fit(scaled_ds)
+PCA_ds = pd.DataFrame(pca.transform(scaled_ds), columns=(["col1","col2", "col3"]))
+PCA_ds.describe().T
+
+#A 3D Projection Of Data In The Reduced Dimension
+x =PCA_ds["col1"]
+y =PCA_ds["col2"]
+z =PCA_ds["col3"]
+#To plot
+fig = plt.figure(figsize=(10,8))
+ax = fig.add_subplot(111, projection="3d")
+ax.scatter(x,y,z, c="maroon", marker="o" )
+ax.set_title("Una Proyección 3D De Los Datos En La Dimensión Reducida")
+plt.show()
+
