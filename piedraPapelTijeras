@@ -1,0 +1,13 @@
+from random import choice
+eleccion=input("piedra, papel, tijera: \n")
+opciones=["piedra", "papel", "tijera"]
+d=choice(opciones)
+#print(d)
+def switch(eleccion):
+    if eleccion == d:
+        print("¡Correcto!")
+    else:
+        print("va de nuevo")
+        eleccion=input("piedra, papel, tijera: \n")
+        switch(eleccion)
+switch(eleccion)
