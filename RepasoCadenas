@@ -61,6 +61,7 @@ print(s[0])
 print(s[10])
 print("------")
 #Recorrer un string
+"""
 x=len(s)
 c=""
 for i in  range(0,x):
@@ -69,9 +70,29 @@ print("------")
 for i in  range(0,x):
     c+=s[i]
     print(c)
+"""
+
+#Funciones en str
+#capitalize para devolver la primera letra en mayuscula
+k="el perro me mordió"
+print(k.capitalize())
+#Lower para volver todas las letras minuscuias
+S="El Perro Me Mordió"
+print(s.lower())
+#swapcase para volver las minusculas a mayusculas o al contrario
+l="eL PeRro mE mordIó"
+print(l.swapcase())
+#upper para volver todas las minusculas a mayusculas
+print(k.upper())
+#Count permite contar las veces que una cadena se encuentra dentro de otra cadena
+#count(<sub>[, <start>[, <end>]])
+m="anita la huerfanita tiene una hermanita"
+print(m.count("ani"))
+
 """https://ellibrodepython.com/cadenas-python#:~:
 text=Las%20cadenas%20en%20Python%20o,el%20comando%20help(str)
 .&text=Tambi%C3%A9n%20es%20valido%20declarar%20las%20cadenas
 %20con%20comillas%20simples%20simples%20'%20.
 """
+
 
