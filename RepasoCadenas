@@ -76,18 +76,49 @@ for i in  range(0,x):
 #capitalize para devolver la primera letra en mayuscula
 k="el perro me mordió"
 print(k.capitalize())
+
 #Lower para volver todas las letras minuscuias
 S="El Perro Me Mordió"
 print(s.lower())
+
 #swapcase para volver las minusculas a mayusculas o al contrario
 l="eL PeRro mE mordIó"
 print(l.swapcase())
+
 #upper para volver todas las minusculas a mayusculas
 print(k.upper())
+
 #Count permite contar las veces que una cadena se encuentra dentro de otra cadena
 #count(<sub>[, <start>[, <end>]])
 m="anita la huerfanita tiene una hermanita"
 print(m.count("ani"))
+
+#isalnum() devuelve true si en la cadena solo hay numeros, false si tiene letras o tiene caracteres especiales @%&/, false si los tiene
+o="12345"
+k="alguna vez sabrás"
+print(o.isalnum())
+print(k.isalnum())
+
+#isalpha() es lo contrario de isalnum()
+o="12345"
+k="algunavezsabras"
+print(o.isalpha())
+print(k.isalpha())#no toma los espacios como letras así que si hay espacios, dará falso
+
+#strip para eliminar los espacios en las cadenas. util para limpiar cadenas
+print(m.strip())
+
+#zfill rellena la cadena a la izquierda con ceros hasta llegar al numero que se le da
+print(o.zfill(7))
+
+#join une a cada parametro en una lista la primera cadena que se le da
+l=["1","2","3","4"]
+s=" y ".join(l)
+print(s)
+
+#split divide la cadena el numeroo de veces que se le indique o que esté presente un caracter divisor
+d="estar,en,tu,lugar,y,tu,en,el,mio"
+print(d.split(","))
 
 """https://ellibrodepython.com/cadenas-python#:~:
 text=Las%20cadenas%20en%20Python%20o,el%20comando%20help(str)
