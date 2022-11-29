@@ -1,4 +1,3 @@
-from random import randrange
 #recibirá una palabra del jugador
 palabra= input("scriba la palabra: ")
 
