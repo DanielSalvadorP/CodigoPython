@@ -19,60 +19,58 @@ for n in range(1,4):
         p2=player
     if n==3:
         p3=player
-    
-    palabra= ["perro","hola","basura","casa","esquisofrenico","burro","cantar","deporte","bailando","latidos","modelo","espalda"]
-    palabraelegida=palabra[randrange(12)]
-    #print(palabraelegida)
-    #contador para que recorra la palabra y mostrará las pistas
-    for i in range(0,len(palabraelegida)):
-    # numLetras=int(len(palabra)/2)
-        #print(i)
-        parimpar=i%2
-        #print(parimpar)
-        if parimpar==0 :
-            print("- "+palabraelegida[i].upper())
-        else:
-            print("- ")
-    print("¿Ya sabes cual es la palabra?")
-    respuesta=input("Dinos cual crees que es: ")
-    puntaje=0
-    puntajetotal=0
-    c=True
-    def sw(respuesta):
-        
-        if respuesta==palabraelegida :
-            c=True
-            return c
+    for j in range(1,5):
+        palabra= ["perro","hola","basura","casa","esquisofrenico","burro","cantar","deporte","bailando","latidos","modelo","espalda"]
+        palabraelegida=palabra[randrange(12)]
+        #print(palabraelegida)
+        #contador para que recorra la palabra y mostrará las pistas
+        for i in range(0,len(palabraelegida)):
+        # numLetras=int(len(palabra)/2)
+            #print(i)
+            parimpar=i%2
+            #print(parimpar)
+            if parimpar==0 :
+                print("- "+palabraelegida[i].upper())
+            else:
+                print("- ")
+        print("¿Ya sabes cual es la palabra?")
+        respuesta=input("Dinos cual crees que es: ")
+        c=True
+        def sw(respuesta):
+            
+            if respuesta==palabraelegida :
+                c=True
+                return c
+            else :
+                c=False
+                #respuesta=input("Revisa de nuevo y dinos cual crees que es: ")
+                #sw(respuesta)
+                return(c)
+        X=sw(respuesta)
+        if X==True:
+            print("¡Correcto!")
+            puntajetotal=int(puntajetotal)+60
+            print(puntajetotal)
+        # print("hola") 
+            if n==1 :
+                puntajeP1=int(puntajetotal)
+                #p1=player
+                #print(p1+": "+str(puntajeP1))
+            if n==2 :
+                puntajeP2=int(puntajetotal)
+                #p2=player
+                #print(p2+": "+str(puntajeP2))
+            if n==3 :
+                #p3=player
+                puntajeP3=int(puntajetotal)
+                #print(p3+": "+str(puntajeP3))
         else :
-            c=False
-            #respuesta=input("Revisa de nuevo y dinos cual crees que es: ")
-            #sw(respuesta)
-            return(c)
-    X=sw(respuesta)
-    if X==True:
-        print("¡Correcto!")
-        puntajetotal=int(puntajetotal)+60
-        #print(puntajetotal)
-       # print("hola") 
-        if n==1 :
-            puntajeP1=int(puntajetotal)
-            #p1=player
-            #print(p1+": "+str(puntajeP1))
-        if n==2 :
-            puntajeP2=int(puntajetotal)
-            #p2=player
-            #print(p2+": "+str(puntajeP2))
-        if n==3 :
-            #p3=player
-            puntajeP3=int(puntajetotal)
-            #print(p3+": "+str(puntajeP3))
-    else :
-        print("Respuesta incorrecta")
-        #puntajetotal=int(puntajetotal)+60
-        #print(player+": "+str(puntajetotal))"""
-    #puntaje=int(puntajetotal)+0
-    #metodo de campeón
-
+            print("Respuesta incorrecta")
+            #puntajetotal=int(puntajetotal)+60
+            #print(player+": "+str(puntajetotal))"""
+        #puntaje=int(puntajetotal)+0
+        #metodo de campeón
+        
     print(p1+": "+str(puntajeP1))
     print(p2+": "+str(puntajeP2))
     print(p3+": "+str(puntajeP3))
